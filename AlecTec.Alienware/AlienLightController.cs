@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using AlecTec.Alienware.Exceptions;
 using LightFX;
 
 namespace AlecTec.Alienware
@@ -32,7 +33,7 @@ namespace AlecTec.Alienware
         public void GoDark()
         {
             // Turn off all active lights
-            var numberOfLights = GetNumberOfLights();
+            var numberOfLights = GetNumberOfDevices();
             WriteDataPointToDebugOutput(nameof(numberOfLights), numberOfLights);
 
         }
@@ -43,7 +44,7 @@ namespace AlecTec.Alienware
         }
 
 
-        public uint GetNumberOfLights()
+        public uint GetNumberOfDevices()
         {
             uint numberOfDevices;
             _lightFxController.LFX_GetNumDevices(out numberOfDevices);

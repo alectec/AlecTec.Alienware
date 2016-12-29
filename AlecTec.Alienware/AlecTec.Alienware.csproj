@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colors\BasicColors.cs" />
     <Compile Include="ILightController.cs" />
     <Compile Include="AlienLightController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

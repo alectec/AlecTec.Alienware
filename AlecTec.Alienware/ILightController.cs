@@ -9,6 +9,8 @@ namespace AlecTec.Alienware
         void GoDark();
 
         void ChangeLights(LFX_ColorStruct color);
+
+        uint GetNumberOfDevices();
         
-        }
+    }
 }

@@ -1,6 +1,6 @@
-﻿using System;
-using Shouldly;
+﻿using Shouldly;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using AlecTec.Alienware.Colors;
 
 namespace AlecTec.Alienware.UnitTests
 {
@@ -13,6 +13,9 @@ namespace AlecTec.Alienware.UnitTests
         public void Init()
         {
             _lightController = new AlienLightController();
+
+            _lightController.Start();
+
         }
 
         [TestMethod]
@@ -33,15 +36,37 @@ namespace AlecTec.Alienware.UnitTests
             _lightController.GoDark();
             
         }
-
-        private void FakeLights()
+       
+        [TestMethod]
+        public void Get_Number_Of_Devices()
         {
-            
+            var numOfDevices = _lightController.GetNumberOfDevices();
+
+            numOfDevices.ShouldBe<uint>(1);
         }
 
+        [TestMethod]
+        public void Change_Lights_To_Red()
+        {
+            _lightController.ChangeLights(BasicColors.Red);
+        }
+
+        public void Change_Lights_To_Maroon()
+        {
+            var maroon = BasicColors.GetCustomColor(128, 0, 0);
+
+            _lightController.ChangeLights(maroon);
+        }
 
 
         // Integration Tests
         // TODO:
+
+        // Cycle basic colors
+
+
+    
+
+
     }
 }
